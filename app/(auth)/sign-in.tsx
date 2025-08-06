@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { Link, router } from 'expo-router'
 import CustomButton from '@/components/CustomButton'
 import CustomInput from '@/components/CustomInput'
+import { signIn } from '@/lib/appwrite'
 
 const SignIn = () => {
 
@@ -12,16 +13,18 @@ const SignIn = () => {
     password: '',
   })
 
-  const handleSubmit = () => {
-    if (!form.email || !form.password) {
+  const handleSubmit = async () => {
+    const {email, password} = form
+
+    if (!email || !password) {
       Alert.alert('Error', 'Please fill in all fields')
       return
     }
     setIsSubmitting(true)
     try {
       //call the appwrite api to sign in
-      console.log(form)
-      Alert.alert('Success', 'Sign in successful')
+      await signIn({email, password})
+      console.log('Sign in successful')
       router.replace('/')
     } catch (error: any) { 
       Alert.alert('Error', error.message)
