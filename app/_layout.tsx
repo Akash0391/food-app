@@ -13,8 +13,6 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    console.log("fontsLoaded", fontsLoaded);
-    console.log("error", error);
     if (error) {
       throw error;
     }
