@@ -2,7 +2,7 @@ import { Dimensions, Image, ImageBackground, KeyboardAvoidingView, Platform, Scr
 import { images } from "@/constants";
 import { Slot } from "expo-router";
 
-export default function _Layout() {
+export default function AuthLayout() {
   return (
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} className="flex-1">
         <ScrollView className="h-full bg-white" keyboardShouldPersistTaps="handled">
