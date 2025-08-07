@@ -1,4 +1,4 @@
-import { Account, Avatars, Client, Databases, ID, Query } from "react-native-appwrite" 
+import { Account, Avatars, Client, Databases, ID, Query, Storage } from "react-native-appwrite" 
 import { CreateUserParams, SignInParams } from '@/type'
 
 export const appwriteConfig = {
@@ -21,6 +21,7 @@ export const client = new Client()
 
 export const account = new Account(client)
 export const database = new Databases(client)   
+export const storage = new Storage(client)
 export const avatar = new Avatars(client)
 
 export const createUser = async ({email, password, name}: CreateUserParams) => {      
