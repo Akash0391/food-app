@@ -6,7 +6,12 @@ export const appwriteConfig = {
     platform: "com.akash.foodapp",
     projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
     databaseId: "689310ea000f9a62a210",
+    bucketId: "68948cdc00319da27767",
     userCollectionId: "6893112e000368bf071e",
+    categoriesCollectionId: "689487f6000a08bcb6aa",
+    menuCollectionId: "689488de001cf5d5bb8a",
+    customizationsCollectionId: "68948a750027084d47ca",
+    menuCustomizationsCollectionId: "68948baa0009f9bfd16d",
 }
 
 export const client = new Client()
