@@ -1,7 +1,8 @@
 import { Redirect, Slot } from "expo-router";
 
-export default function TabsLayout() {  
-    const isAuthenticated = true;
+export default function _Layout() {  
+    const isAuthenticated = true; 
+
     console.log("isAuthenticated", isAuthenticated);
 
     if (!isAuthenticated) {
