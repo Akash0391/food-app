@@ -1,11 +1,13 @@
-import { FlatList, Text, TouchableOpacity, View } from 'react-native'    
+import { FlatList, Text, View } from 'react-native'     
 import { SafeAreaView } from 'react-native-safe-area-context'      
 import useAppwrite from '@/lib/useAppwrite'
 import { getCategories, getMenu } from '@/lib/appwrite'
-import { router, useLocalSearchParams } from 'expo-router'
+import { useLocalSearchParams } from 'expo-router'
 import { useEffect } from 'react'
 import CartButton from '@/components/CartButton'
 import  cn  from 'clsx'
+import MenuCard from '@/components/MenuCard'
+import { MenuItem } from '@/type'
 
 const Search = () => {
   const { query, category } = useLocalSearchParams<{query: string, category: string}>()
@@ -28,7 +30,7 @@ const Search = () => {
         const isFirstRightColItem = index % 2 === 0
         return (  
           <View className={cn('flex-1 max-w-[48%]', !isFirstRightColItem ? 'mt-10' : 'mt-0')}>
-            <Text>Menu Card</Text>
+            <MenuCard item={item as unknown as MenuItem} />  
           </View>
         )
       }}

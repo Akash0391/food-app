@@ -1,4 +1,4 @@
-import { ID } from "react-native-appwrite";
+import { ID, Permission, Role } from "react-native-appwrite";
 import { appwriteConfig, database, storage } from "./appwrite"; 
 import dummyData from "./data";
 import * as FileSystem from "expo-file-system";
@@ -71,7 +71,8 @@ async function uploadImageToStorage(imageUrl: string) {
             type: "image/jpeg",
             size: 1000000,
             uri: downloadRes.uri,
-        }
+        },
+        [Permission.read(Role.any())]  
       );
   
       return storage.getFileViewURL(appwriteConfig.bucketId, file.$id);
